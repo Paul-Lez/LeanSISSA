@@ -13,3 +13,8 @@ import LeanSISSA.NoFreeLunch
 import LeanSISSA.Bellman
 import LeanSISSA.BiasVariance
 import LeanSISSA.VCDimension
+import LeanSISSA.ExponentialODE
+import LeanSISSA.SineODE
+import LeanSISSA.CauchyTheorem
+import LeanSISSA.UniformEntropy
+import LeanSISSA.BinomialTheorem
