@@ -24,7 +24,7 @@ Apply attention to the input `fun i => x (σ i)`.
 For each `i`, the new output at `i` is equal to the original output at `σ i`.
 Replace `True` with this statement. Prove the statement. -/
 theorem attention_permutation {ι κ : Type*} [Fintype ι] [Fintype κ]
-    (x : ι → κ → ℝ) (σ : Equiv.Perm ι) : True := by
+    (x : ι → κ → ℝ) (σ : Equiv.Perm ι) : sorry := by
   sorry
 
 end LeanSISSA.AttentionEquivariance
