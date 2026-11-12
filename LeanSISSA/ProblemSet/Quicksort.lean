@@ -24,7 +24,8 @@ decreasing_by
     simp_wf
     simpa using (Nat.lt_succ_of_le (List.length_filter_le _ xs.attach))
 
-/-- The output of quicksort is a permutation of the input. Thus, it keeps the multiplicity of each element. -/
+/-- The output of quicksort is a permutation of the input. Thus, it keeps the multiplicity of
+each element. -/
 theorem quicksort_perm (xs : List ℕ) : (quicksort xs).Perm xs := by
   sorry
 

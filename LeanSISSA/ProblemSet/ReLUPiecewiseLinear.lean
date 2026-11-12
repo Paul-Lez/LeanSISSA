@@ -17,7 +17,7 @@ def network (n : ℕ) (a w b : Fin n → ℝ) (c x : ℝ) : ℝ := by
 
 /-- This condition says that `f` is locally affine outside a finite set `S`.
 For each `x ∉ S`, there is an open interval around `x` on which `f` is affine. -/
-def piecewiseAffine (f : ℝ → ℝ) : Prop := by
+def piecewiseAffine (f : ℝ → ℝ) : Prop :=
   sorry
 
 /-- The network is locally affine outside a finite set.

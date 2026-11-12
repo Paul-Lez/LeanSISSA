@@ -9,7 +9,6 @@ import LeanSISSA.ProblemSet.CauchyTheorem
 Twelve short exercises rated ★ (one star) or ★★ (two stars).
 Replace each `sorry` with a proof. The imported results are available to use.
 The hints suggest useful declarations; finding their arguments is part of the exercise.
-This student worksheet is intentionally separate from the completed library imports.
 -/
 
 namespace LeanSISSA.BeginnerExercises

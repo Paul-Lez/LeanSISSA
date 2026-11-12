@@ -47,8 +47,8 @@ theorem rotate_iterate {G : Type*} [Group G] (p : ℕ) [NeZero p]
   sorry
 
 /-- The additive group `ZMod p` acts on product-one tuples by repeated rotation. -/
-def rotationAction {G : Type*} [Group G] (p : ℕ) [NeZero p] :
-    AddAction (ZMod p) (ProductOneTuples G p) := by
+instance rotationAction {G : Type*} [Group G] (p : ℕ) [NeZero p] :
+    AddAction (ZMod p) (ProductOneTuples G p) :=
   sorry
 
 /-- In the rotation action, the element one performs one rotation. -/
