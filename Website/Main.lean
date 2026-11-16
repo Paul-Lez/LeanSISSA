@@ -22,6 +22,7 @@ htmlSplit := .never
 - [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/): a tutorial on formal mathematics.
 - [LeanSISSA course repository](https://github.com/Paul-Lez/LeanSISSA): course files and exercises.
 - [Git tutorial](https://leanprover-community.github.io/contribute/git.html): learn the Git commands used with Lean projects.
+- [Imperial College Lean Course notes](https://github.com/b-mehta/formalising-mathematics-notes): extra resources for learning Lean.
 
 ## Find definitions and get help
 
