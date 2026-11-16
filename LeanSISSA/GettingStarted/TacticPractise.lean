@@ -1,4 +1,4 @@
-import Mathlib
+import LeanSISSA.GettingStarted.MoreExercises
 
 
 /-! # First steps in Lean
@@ -11,8 +11,24 @@ In each case, the goal is to fill in the `sorry` with a Lean tactic proof, follo
 the hints in the comments.
 -/
 
+
+/- To add:
+- A bunch of examples of using `rw` and `apply`: goal is that students should feel comfortable
+  using either of these
+- Lambda syntax for functions
+
+Teaching plan: introduce a few tactics: `rw`, `apply`, `intro`, `use`, `obtain`
+Spend ~1 h making people practise with these until everyone is comfortable.
+Then introduce `induction'`, `simp`, `norm_num`, `linarith` and `grind`.
+-/
+
+
+
 section UniversalQuantifiers
 -- TODO: this is so people can try the `intro` tactic.
+example : ∀ n, n ^ 2 + 2 * n + 1 = (n + 1) ^ 2 := by
+  -- hint: use `intro` to introduce the variable `n`, and then use algebraic automation.
+  sorry
 
 end UniversalQuantifiers
 
@@ -36,9 +52,6 @@ end Existentials
 
 section Induction
 
-lemma key_identity (n : ℕ) : (n + 1) ^ 3 + 2 * (n + 1) = n ^ 3 + 3 * n ^ 2 + 5 * n + 3 := by
-  sorry
-
 lemma three_div_sq_add_two_mul (n : ℕ) : 3 ∣ n ^ 3 + 2 * n := by
   induction n with
   | zero => sorry
@@ -49,38 +62,13 @@ lemma three_div_sq_add_two_mul (n : ℕ) : 3 ∣ n ^ 3 + 2 * n := by
 
 end Induction
 
-section Sets
-
-example (A B : Set ℕ) (x : ℕ) : x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B := by
-  sorry
-
-example (A B : Set ℕ) (x : ℕ) : x ∈ (A ∪ B) \ (A ∩ B) ↔ x ∈ A ∧ x ∉ B ∨ x ∉ A ∧ x ∈ B := by
-  sorry
-
-end Sets
-
-
-
 section FiniteAndSums
-
--- Introduce finite types, finite sets, notation for sums over these
-
-/- This is the sum `∑ i ∈ {1, 2, 3} = 6`. -/
-example : ∑ i ∈ Finset.Icc 1 3, i = 6 := by
-  sorry
 
 example (n : ℕ) : ∑ i ∈ Finset.Icc 1 n, 1 = n := by
   -- hint: use `Finset.sum_const` and `Nat.card_Icc`.
   sorry
 
-example (n : ℕ) : 2 * ∑ i ∈ Finset.Icc 1 n, i = n * (n + 1) := by
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    sorry
-
 end FiniteAndSums
-
 
 section Coercions
 
@@ -117,40 +105,17 @@ example (a b c d e f g : ℝ) (ha : a ≤ b) (hb : b < c) (hc : c ≤ d)
     (hd : d ≤ e) (he : e ≤ f) (hf : f ≤ g) : a < g := by
   /-
   hint: if you enjoy pain, use `lt_of_le_of_lt` and `lt_of_lt_of_le` repeatedly.
-  otherwise try using `linarith` or (for the cool kids) `grw`
-  (a bit like `rw` but for inequalities).
   -/
   sorry
 
 end Inequalities
 
-section Subtypes
 
-end Subtypes
-
-section Instances
-
-abbrev H : Type := { x : ℤ // 2 ∣ x }
-
--- Addition is defined on `H` (i.e. `H` is closed under addition)
-instance : Add H := sorry
-
-instance : Zero H := sorry
-
-instance : Sub H := sorry
-
-instance : Neg H := sorry
-
-instance : AddGroup H := by
-  apply AddGroup.ofRightAxioms
-  all_goals sorry
-
-instance : AddCommGroup H := by
-  -- hint: use `add_comm_group.mk` and fill in the fields using `sorry`.
+theorem primes_dvd (a b p : ℕ) (hp : Prime p) (h : p ∣ a ^ 2 * b) :
+    p ∣ a ∨ p ∣ b := by
   sorry
 
 
-end Instances
 
 section Continuity
 
@@ -180,23 +145,3 @@ theorem sigmoid_derivative (x : ℝ) : deriv σ x = σ x * (1 - σ x) := by
   sorry
 
 end Continuity
-
-theorem primes_dvd (a b p : ℕ) (hp : Prime p) (h : p ∣ a ^ 2 * b) :
-    p ∣ a ∨ p ∣ b := by
-  sorry
-
-
-/-- `√2` is irrational. -/
-theorem irrational_root_two : Irrational √2 := by
-  sorry
-
-open scoped Real
-
-/-- `π` is irrational. -/
-theorem irrational_π : Irrational π := by
-  sorry
-
-/-- Every positive integer can be written as a sum of distinct Fibonacci numbers. -/
-theorem zeckendorf (n : ℕ) (hn : 0 < n) :
-    ∃ s : Finset ℕ, s.sum Nat.fib = n := by
-  sorry
