@@ -1,0 +1,53 @@
+html, body { background: white !important; color: black !important; }
+.tactic-tabs { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1.5rem 0; border-bottom: 1px solid black; }
+.tactic-tabs button { color: black; background: white; border: 1px solid black; padding: .55rem .8rem; cursor: pointer; font: inherit; }
+.tactic-tabs button[aria-selected="true"] { font-weight: bold; text-decoration: underline; }
+.tactic-tabs button:focus-visible { outline: 3px solid black; outline-offset: 2px; }
+[role="tabpanel"][hidden] { display: none !important; }
+
+/* High-contrast, colour-blind-friendly colours on the white code background.
+   Weight and italics also distinguish tokens without relying on colour alone. */
+.hl.lean {
+  --verso-code-color: #202020;
+  --verso-code-keyword-color: #005a9c;
+  --verso-code-const-color: #713c87;
+  --verso-code-var-color: #202020;
+  color: #202020;
+  background-color: #fff;
+}
+.hl.lean .keyword { color: #005a9c; font-weight: 700; }
+.hl.lean .const, .hl.lean .sort { color: #713c87; }
+.hl.lean .var { color: #202020; font-style: italic; }
+.hl.lean .number, .hl.lean .char, .hl.lean .literal { color: #955000; }
+.hl.lean .comment { color: #526158; font-style: italic; }
+.hl.lean .punctuation, .hl.lean .delim, .hl.lean .unknown { color: #202020; }
+
+/* Error messages need more room than the default hover and should wrap on mobile. */
+.tippy-box[data-theme~='error'] {
+  width: min(42rem, 90vw);
+  max-width: 90vw !important;
+}
+.tippy-box[data-theme~='error'] .hl.lean {
+  max-height: min(60vh, 32rem) !important;
+}
+.tippy-box[data-theme~='error'] .hover-info.messages {
+  max-height: none;
+}
+.lean-errors {
+  margin: .5rem 0 1.25rem;
+  border: 1px solid #555;
+  padding: .6rem .8rem;
+  color: #202020;
+  background: white;
+}
+.lean-errors summary { cursor: pointer; font-weight: bold; }
+.lean-errors summary:focus-visible { outline: 3px solid #005a9c; outline-offset: 3px; }
+.lean-errors .lean-error-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 60vh;
+  overflow: auto;
+  margin: .7rem 0 0;
+}
+
+.lean-error-message .verso-message { display: block; white-space: inherit; }
