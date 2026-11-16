@@ -14,5 +14,5 @@ The goal here is for participants to gain some familiarity with how one goes abo
 
 ## Course website
 
-The local Verso reference site has resource links and tactic and command cheatsheets.
+The [course website](https://paul-lez.github.io/LeanSISSA/) has resource links and tactic and command cheatsheets.
 See [Website/README.md](Website/README.md) for build and local browsing instructions.
