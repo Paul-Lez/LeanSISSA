@@ -34,12 +34,52 @@ theorem square_dvd_square (a b : ℕ) (H : a ∣ b) : a ^ 2 ∣ b ^ 2 := by
 
 end Existentials
 
-section Finite
+section Induction
+
+lemma key_identity (n : ℕ) : (n + 1) ^ 3 + 2 * (n + 1) = n ^ 3 + 3 * n ^ 2 + 5 * n + 3 := by
+  sorry
+
+lemma three_div_sq_add_two_mul (n : ℕ) : 3 ∣ n ^ 3 + 2 * n := by
+  induction n with
+  | zero => sorry
+  | succ n ih =>
+    -- hint: use `rw` to rewrite the goal using `key_identity`.
+    -- Then use `obtain` to get a witness for the existential quantifier in `ih`.
+    sorry
+
+end Induction
+
+section Sets
+
+example (A B : Set ℕ) (x : ℕ) : x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B := by
+  sorry
+
+example (A B : Set ℕ) (x : ℕ) : x ∈ (A ∪ B) \ (A ∩ B) ↔ x ∈ A ∧ x ∉ B ∨ x ∉ A ∧ x ∈ B := by
+  sorry
+
+end Sets
+
+
+
+section FiniteAndSums
 
 -- Introduce finite types, finite sets, notation for sums over these
 
+/- This is the sum `∑ i ∈ {1, 2, 3} = 6`. -/
+example : ∑ i ∈ Finset.Icc 1 3, i = 6 := by
+  sorry
 
-end Finite
+example (n : ℕ) : ∑ i ∈ Finset.Icc 1 n, 1 = n := by
+  -- hint: use `Finset.sum_const` and `Nat.card_Icc`.
+  sorry
+
+example (n : ℕ) : 2 * ∑ i ∈ Finset.Icc 1 n, i = n * (n + 1) := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    sorry
+
+end FiniteAndSums
 
 
 section Coercions
@@ -74,8 +114,7 @@ example (a b : ℝ) : a * b ≤ (a ^ 2 + b ^ 2) / 2 := by
   sorry
 
 example (a b c d e f g : ℝ) (ha : a ≤ b) (hb : b < c) (hc : c ≤ d)
-    (hd : d ≤ e) (he : e ≤ f) (hf : f ≤ g) :
-    a < g := by
+    (hd : d ≤ e) (he : e ≤ f) (hf : f ≤ g) : a < g := by
   /-
   hint: if you enjoy pain, use `lt_of_le_of_lt` and `lt_of_lt_of_le` repeatedly.
   otherwise try using `linarith` or (for the cool kids) `grw`
@@ -85,7 +124,33 @@ example (a b c d e f g : ℝ) (ha : a ≤ b) (hb : b < c) (hc : c ≤ d)
 
 end Inequalities
 
+section Subtypes
 
+end Subtypes
+
+section Instances
+
+abbrev H : Type := { x : ℤ // 2 ∣ x }
+
+-- Addition is defined on `H` (i.e. `H` is closed under addition)
+instance : Add H := sorry
+
+instance : Zero H := sorry
+
+instance : Sub H := sorry
+
+instance : Neg H := sorry
+
+instance : AddGroup H := by
+  apply AddGroup.ofRightAxioms
+  all_goals sorry
+
+instance : AddCommGroup H := by
+  -- hint: use `add_comm_group.mk` and fill in the fields using `sorry`.
+  sorry
+
+
+end Instances
 
 section Continuity
 
@@ -115,19 +180,6 @@ theorem sigmoid_derivative (x : ℝ) : deriv σ x = σ x * (1 - σ x) := by
   sorry
 
 end Continuity
-
-section Induction
-
-lemma key_identity (n : ℕ) : (n + 1) ^ 2 + 2 * (n + 1) = n ^ 2 + 4 * n + 3 := by
-  sorry
-
-lemma three_div_sq_add_two_mul (n : ℕ) : 3 ∣ n ^ 2 + 2 * n := by
-  sorry
-
-end Induction
-
-
-
 
 theorem primes_dvd (a b p : ℕ) (hp : Prime p) (h : p ∣ a ^ 2 * b) :
     p ∣ a ∨ p ∣ b := by
