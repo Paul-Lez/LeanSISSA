@@ -11,21 +11,8 @@ In each case, the goal is to fill in the `sorry` with a Lean tactic proof, follo
 the hints in the comments.
 -/
 
-
-/- To add:
-- A bunch of examples of using `rw` and `apply`: goal is that students should feel comfortable
-  using either of these
-- Lambda syntax for functions
-
-Teaching plan: introduce a few tactics: `rw`, `apply`, `intro`, `use`, `obtain`
-Spend ~1 h making people practise with these until everyone is comfortable.
-Then introduce `induction'`, `simp`, `norm_num`, `linarith` and `grind`.
--/
-
-
-
 section UniversalQuantifiers
--- TODO: this is so people can try the `intro` tactic.
+
 example : ∀ n, n ^ 2 + 2 * n + 1 = (n + 1) ^ 2 := by
   -- hint: use `intro` to introduce the variable `n`, and then use algebraic automation.
   sorry
