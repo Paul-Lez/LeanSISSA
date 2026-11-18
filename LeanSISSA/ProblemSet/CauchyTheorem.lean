@@ -82,4 +82,22 @@ theorem exists_element_order_prime (G : Type*) [Group G] [Fintype G]
     ∃ g : G, orderOf g = p := by
   sorry
 
+/-- In a group, a product is one exactly when the second factor is the
+inverse of the first. Hint: `mul_eq_one_iff_inv_eq` or cancellation. -/
+theorem product_eq_one {G : Type*} [Group G] (g h : G) :
+    g * h = 1 ↔ h = g⁻¹ := by
+  sorry
+
+/-- An element whose square is one equals its inverse.
+Hint: rewrite `pow_two` and use `product_eq_one`. -/
+theorem inverse_eq_of_square_eq_one {G : Type*} [Group G] (g : G)
+    (hg : g ^ 2 = 1) : g⁻¹ = g := by
+  sorry
+
+/-- A product-one tuple of length one has its sole entry equal to one.
+Hint: inspect `x.property`, then simplify `List.ofFn`. -/
+theorem product_one_single_entry {G : Type*} [Group G]
+    (x : ProductOneTuples G 1) : x.val 0 = 1 := by
+  sorry
+
 end LeanSISSA.CauchyTheorem

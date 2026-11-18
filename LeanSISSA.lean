@@ -3,7 +3,6 @@ module
 public import LeanSISSA.GettingStarted.MoreExercises
 public import LeanSISSA.GettingStarted.TacticPractise
 public import LeanSISSA.ProblemSet.AttentionEquivariance
-public import LeanSISSA.ProblemSet.BeginnerExercises
 public import LeanSISSA.ProblemSet.Bellman
 public import LeanSISSA.ProblemSet.BiasVariance
 public import LeanSISSA.ProblemSet.BinomialTheorem

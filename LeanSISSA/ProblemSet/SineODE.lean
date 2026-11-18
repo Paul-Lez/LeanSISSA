@@ -33,4 +33,11 @@ theorem eq_sin (f g : ℝ → ℝ)
     (hf0 : f 0 = 0) (hg0 : g 0 = 1) : f = Real.sin := by
   sorry
 
+/-- A solution of `f' = g`, `g' = -f` with `f 0 = 1` and `g 0 = 0` is cosine.
+Hint: `funext`, `solution_eq`, and `simp`. -/
+theorem cosine_initial_values (f g : ℝ → ℝ)
+    (hf : ∀ x, HasDerivAt f (g x) x) (hg : ∀ x, HasDerivAt g (-f x) x)
+    (hf0 : f 0 = 1) (hg0 : g 0 = 0) : f = Real.cos := by
+  sorry
+
 end LeanSISSA.SineODE

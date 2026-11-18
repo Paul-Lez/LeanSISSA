@@ -30,4 +30,20 @@ theorem lipschitz_comp (f g : ℝ → ℝ) (K L : ℝ)
     ∀ x y, |f (g x) - f (g y)| ≤ (K * L) * |x - y| := by
   sorry
 
+/-- ReLU sends zero to zero. Hint: unfold `relu` and use `simp`. -/
+theorem relu_zero : relu 0 = 0 := by
+  sorry
+
+/-- ReLU sends nonpositive inputs to zero. Hint: `max_eq_left`. -/
+theorem relu_of_nonpos (x : ℝ) (hx : x ≤ 0) : relu x = 0 := by
+  sorry
+
+/-- ReLU is nonnegative. Hint: `le_max_left`. -/
+theorem relu_nonneg (x : ℝ) : 0 ≤ relu x := by
+  sorry
+
+/-- Applying ReLU twice gives the same result. Hint: use nonnegativity. -/
+theorem relu_idempotent (x : ℝ) : relu (relu x) = relu x := by
+  sorry
+
 end LeanSISSA.ReLULipschitz

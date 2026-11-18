@@ -31,4 +31,14 @@ theorem entropy_uniform {ι : Type*} [Fintype ι] [Nonempty ι] :
     entropy (uniformMass : ι → ℝ) = Real.log (Fintype.card ι) := by
   sorry
 
+/-- The uniform distribution on one point has zero entropy.
+Hint: specialize `entropy_uniform` to `Fin 1` and simplify. -/
+theorem entropy_uniform_one : entropy (uniformMass : Fin 1 → ℝ) = 0 := by
+  sorry
+
+/-- The uniform distribution on two points has entropy `log 2` nats.
+Hint: specialize `entropy_uniform` to `Fin 2` and simplify. -/
+theorem entropy_uniform_two : entropy (uniformMass : Fin 2 → ℝ) = Real.log 2 := by
+  sorry
+
 end LeanSISSA.UniformEntropy

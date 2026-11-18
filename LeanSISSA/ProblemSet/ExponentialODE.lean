@@ -42,4 +42,10 @@ theorem deriv_eq_self_iff {f : ℝ → ℝ} (hf : Differentiable ℝ f) :
     deriv f = f ↔ ∃ (C : ℝ), f = C • Real.exp := by
   sorry
 
+/-- A solution of `f' = f` with `f 0 = 1` is the exponential function.
+Hint: use `exists_smul_rexp` and evaluate at zero with `congrFun`. -/
+theorem exponential_initial_one (f : ℝ → ℝ)
+    (hf : ∀ x, HasDerivAt f (f x) x) (hf0 : f 0 = 1) : f = Real.exp := by
+  sorry
+
 end LeanSISSA.ExponentialODE
