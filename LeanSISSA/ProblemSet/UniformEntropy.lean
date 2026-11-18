@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Entropy of a uniform random variable
 
@@ -8,6 +10,8 @@ Useful declarations: `Real.log_inv`, `Finset.sum_const`, `Finset.card_univ`,
 `Fintype.card_pos`, `Nat.cast_ne_zero`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/SpecialFunctions/Log/Basic.html
 -/
+
+public section
 
 noncomputable section
 namespace LeanSISSA.UniformEntropy

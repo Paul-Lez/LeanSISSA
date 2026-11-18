@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Ordinary least squares
 
@@ -7,6 +9,8 @@ For a harder exercise, add an intercept or use a design matrix.
 Useful declarations: `Finset.sum_add_distrib`, `Finset.sum_mul`, `Finset.mul_sum`, `sq_nonneg`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/BigOperators/Ring/Finset.html
 -/
+
+public section
 
 noncomputable section
 namespace LeanSISSA.OrdinaryLeastSquares

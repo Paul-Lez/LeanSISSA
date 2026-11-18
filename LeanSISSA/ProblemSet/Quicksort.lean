@@ -1,4 +1,6 @@
-import Mathlib.Data.List.Sort
+module
+
+public import Mathlib.Data.List.Sort
 
 /-! # Verifying quicksort
 
@@ -8,6 +10,8 @@ Useful declarations: `List.length_filter_le`, `List.mem_filter`, `List.Perm`,
 `List.Perm.append`, `List.Perm.mem_iff`, `List.pairwise_append`, `List.pairwise_cons`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/List/Sort.html
 -/
+
+public section
 
 namespace LeanSISSA.Quicksort
 

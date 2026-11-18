@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Bias–variance decomposition
 
@@ -7,6 +9,8 @@ The target is deterministic. Thus, the identity has no irreducible-noise term.
 Useful declarations: `Finset.sum_sub_distrib`, `Finset.sum_mul`, `Finset.mul_sum`, `sq_nonneg`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/BigOperators/Ring/Finset.html
 -/
+
+public section
 
 noncomputable section
 namespace LeanSISSA.BiasVariance

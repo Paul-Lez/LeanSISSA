@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Permutation equivariance of attention
 
@@ -8,6 +10,8 @@ Useful declarations: `Equiv.sum_comp`,
 `Real.exp_pos`, `Finset.sum_div`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/BigOperators/Group/Finset/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.AttentionEquivariance

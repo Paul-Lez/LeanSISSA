@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Finite-horizon Bellman equations
 
@@ -8,6 +10,8 @@ The recurrence and the action bound hold for any real discount factor.
 Useful declarations: `le_max_left`, `le_max_right`, `max_le`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Order/Basic.html
 -/
+
+public section
 
 noncomputable section
 namespace LeanSISSA.Bellman

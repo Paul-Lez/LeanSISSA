@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Gradient descent on a quadratic
 
@@ -6,6 +8,8 @@ This exercise gives the definitions and statements.
 Useful declarations: `sq_nonneg`, `mul_nonneg`, `abs_mul`, `pow_two`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Calculus/Deriv/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.GradientDescent

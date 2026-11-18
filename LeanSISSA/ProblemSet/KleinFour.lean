@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The Klein four group
 
@@ -10,6 +12,8 @@ Replace each `sorry` with a proof. For statements about arbitrary elements, `cas
 split into the four possible cases; `rfl` can then evaluate the multiplication table.
 The last exercises use the group structure assembled from the earlier results.
 -/
+
+public section
 
 namespace LeanSISSA.KleinFour
 

@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Least squares and orthogonality
 
@@ -6,6 +8,8 @@ This is an open exercise. Replace each placeholder as the docstring specifies.
 Useful declarations: `Finset.sum_add_distrib`, `Finset.sum_mul`, `sq_nonneg`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/InnerProductSpace/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.LeastSquares

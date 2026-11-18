@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Universal approximation with ReLU
 
@@ -7,6 +9,8 @@ First, examine simple piecewise-linear functions.
 Useful declarations: `ContinuousOn`, `Set.Icc`, `Finset.sum`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/ContinuousOn.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.UniversalApproximation

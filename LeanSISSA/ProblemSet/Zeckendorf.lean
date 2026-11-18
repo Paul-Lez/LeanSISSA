@@ -1,7 +1,11 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! The Zeckendorf representation of a positive integer is a unique way
 of writing it as a sum of distinct Fibonacci numbers. -/
+
+public section
 
 /-- Every positive integer can be written as a sum of distinct Fibonacci numbers. -/
 theorem zeckendorf (n : ℕ) (hn : 0 < n) :

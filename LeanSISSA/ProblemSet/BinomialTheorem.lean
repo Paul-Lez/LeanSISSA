@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The binomial theorem
 
@@ -7,6 +9,8 @@ Prove the formula by induction on `n`. Use Pascal's identity for the induction s
 Useful declarations: `Nat.choose_succ_succ`, `Finset.sum_range_succ`, `pow_succ`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Nat/Choose/Basic.html
 -/
+
+public section
 
 namespace LeanSISSA.BinomialTheorem
 

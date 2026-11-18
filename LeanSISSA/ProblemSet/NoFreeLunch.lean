@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # A simple no-free-lunch theorem
 
@@ -8,6 +10,8 @@ Useful declarations: `Finset.mem_insert`, `Function.update`, `Function.update_sa
 `Function.update_noteq`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Logic/Function/Basic.html
 -/
+
+public section
 
 namespace LeanSISSA.NoFreeLunch
 

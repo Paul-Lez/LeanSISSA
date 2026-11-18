@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The sine function and an ODE
 
@@ -13,6 +15,8 @@ Useful declarations: `HasDerivAt.prodMk`, `LipschitzWith.prod_fst`,
 `Real.sin_zero`, `Real.cos_zero`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/ODE/ExistUnique.html
 -/
+
+public section
 
 namespace LeanSISSA.SineODE
 

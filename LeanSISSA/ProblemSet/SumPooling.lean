@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Permutation-invariant sum pooling
 
@@ -6,6 +8,8 @@ This exercise gives the definitions and statements.
 Useful declarations: `Equiv.sum_comp`, `Finset.sum_bij`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/BigOperators/Group/Finset/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.SumPooling

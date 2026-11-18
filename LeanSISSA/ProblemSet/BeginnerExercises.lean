@@ -1,8 +1,10 @@
-import LeanSISSA.ProblemSet.ReLULipschitz
-import LeanSISSA.ProblemSet.ExponentialODE
-import LeanSISSA.ProblemSet.SineODE
-import LeanSISSA.ProblemSet.UniformEntropy
-import LeanSISSA.ProblemSet.CauchyTheorem
+module
+
+public import LeanSISSA.ProblemSet.ReLULipschitz
+public import LeanSISSA.ProblemSet.ExponentialODE
+public import LeanSISSA.ProblemSet.SineODE
+public import LeanSISSA.ProblemSet.UniformEntropy
+public import LeanSISSA.ProblemSet.CauchyTheorem
 
 /-! # Beginner exercises
 
@@ -10,6 +12,8 @@ Twelve short exercises rated ★ (one star) or ★★ (two stars).
 Replace each `sorry` with a proof. The imported results are available to use.
 The hints suggest useful declarations; finding their arguments is part of the exercise.
 -/
+
+public section
 
 namespace LeanSISSA.BeginnerExercises
 

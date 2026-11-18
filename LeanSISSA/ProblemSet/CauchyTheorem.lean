@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Cauchy's theorem for finite groups
 
@@ -13,6 +15,8 @@ Useful declarations: `List.ofFn`, `List.prod`, `orderOf_eq_prime`, `ZMod`,
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/GroupAction/Quotient.html
 -/
 
+public section
+
 noncomputable section
 open Classical
 
@@ -20,15 +24,13 @@ namespace LeanSISSA.CauchyTheorem
 
 /-- The `p`-tuples in `G` whose entries have ordered product one.
 The list product uses the index order and does not assume that `G` is commutative. -/
-def ProductOneTuples (G : Type*) [Group G] (p : ℕ) : Type _ :=
+abbrev ProductOneTuples (G : Type*) [Group G] (p : ℕ) : Type _ :=
   {x : Fin p → G // (List.ofFn x).prod = 1}
 
 /-- If `G` is finite, the type of product-one tuples is finite. -/
 noncomputable instance (G : Type*) [Group G] [Fintype G] (p : ℕ) :
-    Fintype (ProductOneTuples G p) := by
-  classical
-  unfold ProductOneTuples
-  infer_instance
+    Fintype (ProductOneTuples G p) :=
+  inferInstanceAs (Fintype {x : Fin p → G // (List.ofFn x).prod = 1})
 
 /-- If `p` is positive, a product-one tuple is determined by its first `p - 1` entries. -/
 theorem card_product_one_tuples (G : Type*) [Group G] [Fintype G] (p : ℕ) (hp : 0 < p) :

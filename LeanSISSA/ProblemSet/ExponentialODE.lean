@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The exponential function and an ODE
 
@@ -8,6 +10,8 @@ Useful declarations: `ODE_solution_unique_univ`, `LipschitzWith.id`, `Real.hasDe
 `HasDerivAt.const_smul`, `deriv_const_smul`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/ODE/ExistUnique.html
 -/
+
+public section
 
 open Metric Set Asymptotics Filter Real
 open scoped Topology NNReal

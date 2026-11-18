@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # ReLU and Lipschitz continuity
 
@@ -6,6 +8,8 @@ This exercise gives the definitions and statements.
 Useful declarations: `max_le_max`, `abs_le`, `LipschitzWith.comp`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/MetricSpace/Lipschitz.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.ReLULipschitz

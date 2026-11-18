@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Robustness of a linear classifier
 
@@ -6,6 +8,8 @@ This is an open exercise. Write the definitions and replace `True` as the docstr
 Useful declarations: `Finset.abs_sum_le_sum_abs`, `Finset.sum_add_distrib`, `Real.sqrt_mul_self`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/InnerProductSpace/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.ClassifierRobustness

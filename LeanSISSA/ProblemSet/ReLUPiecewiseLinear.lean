@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # ReLU networks are piecewise linear
 
@@ -6,6 +8,8 @@ This is an open exercise. Write the definitions and replace `True` with the stat
 Useful declarations: `Finset.sum`, `Set.Finite`, `max_eq_left`, `max_eq_right`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Set/Finite/Basic.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.ReLUPiecewiseLinear

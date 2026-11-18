@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # Softmax
 
@@ -7,6 +9,8 @@ Prove the properties of softmax on a nonempty finite type.
 Useful declarations: `Real.exp_pos`, `Real.exp_add`, `Finset.sum_pos`, `Finset.sum_div`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/SpecialFunctions/Exp.html
 -/
+
+public section
 noncomputable section
 
 namespace LeanSISSA.Softmax

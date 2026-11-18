@@ -1,4 +1,8 @@
-import LeanSISSA.GettingStarted.MoreExercises
+module
+
+public import LeanSISSA.GettingStarted.MoreExercises
+
+public section
 
 
 /-! # First steps in Lean
