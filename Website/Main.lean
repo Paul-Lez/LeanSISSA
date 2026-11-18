@@ -6,9 +6,7 @@ open Verso Genre Manual InlineLean
 #docs (Manual) course "LeanSISSA" :=
 :::::::
 
-Welcome to the LeanSISSA reference. Use the menu to find resources, tactics, and commands.
-The Lean examples use Mathlib. Select a tactic in an example to see the goal at that point.
-A non-example shows a situation where the tactic fails. Hover over the marked code to see Lean’s error message.
+Welcome to the SISSA Lean tutorial website.
 
 # Resources
 %%%
@@ -27,10 +25,11 @@ htmlSplit := .never
 ## Find definitions and get help
 
 - [Mathlib](https://github.com/leanprover-community/mathlib4): the main Lean mathematics library. Browse its [documentation](https://leanprover-community.github.io/mathlib4_docs/).
-- [Lean Zulip](https://leanprover.zulipchat.com/): ask questions and talk to the Lean community.
-- [Loogle](https://loogle.lean-lang.org/): search for declarations by name or type.
+- [Mathlib Phrasebook](https://leanprover-community.github.io/documentation.html#how-tos)
 - [Tactic list](https://leanprover-community.github.io/mathlib4_docs/tactics.html): find more tactics and their syntax.
 - [Lean glossary](https://leanprover-community.github.io/glossary.html): look up terms used by the community.
+- [Loogle](https://loogle.lean-lang.org/): search for declarations by name or type.
+- [Lean Zulip](https://leanprover.zulipchat.com/): ask questions and talk to the Lean community.
 - [Tau Ceti](https://github.com/TauCetiProject/TauCeti): an AI-built mathematics library.
 
 ## A few links
@@ -57,8 +56,8 @@ For example, type `\forall` to enter `∀`. The Lean extension replaces a comple
 abbreviation automatically. Press Tab to replace an abbreviation early, or move
 the cursor away from it.
 
-To see the full list, open the Lean command menu and choose **Documentation… →
-Show Unicode Input Abbreviations**. These shortcuts use the Lean extension's
+To see the full list, open the Lean command menu and choose *Documentation… →
+Show Unicode Input Abbreviations*. These shortcuts use the Lean extension's
 default settings.
 
 ## Logic and arrows
@@ -264,7 +263,7 @@ tag := "elementary-tactics"
 
 ### `rw`
 
-`rw [h]` replaces the left side of an equality `h` with its right side in the goal. Use `rw [← h]` for the other direction, or `rw [h] at h₂` to change a hypothesis.
+`rw [h]` replaces the left side of an equality `h` with its right side in the goal. You can use `rw [← h]` for the other direction (i.e. replacing the right hand side with the left hand side), or `rw [h] at h₂` to change a hypothesis.
 
 ```lean
 example (a b : Nat) (h : a = b) : a + 3 = b + 3 := by
@@ -277,7 +276,7 @@ example (a b : Nat) (h : a = b) (hb : b = 7) : a = 7 := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- The goal has no occurrence of a to rewrite.
 example (a b : Nat) (h : a = b) : b = b := by
   rw [h]
@@ -285,21 +284,22 @@ example (a b : Nat) (h : a = b) : b = b := by
 
 ### `apply`
 
-`apply h` works backwards from the conclusion of `h`. It creates goals for any inputs that Lean still needs.
+`apply h` works backwards from the conclusion of `h`. It creates goals for any inputs that Lean still needs (e.g. hypotheses of `h`, etc). Here, `h` can be a local hypothesis, or a theorem from the library.
 
 ```lean
 example (P Q : Prop) (h : P → Q) (hp : P) : Q := by
   apply h
   exact hp
 
-example (a b : Nat) (h : a = b) : b = a := by
-  apply Eq.symm
-  exact h
+example (a b c : Nat) (h : a = b) (h' : b = c) : a = c := by
+  apply Eq.trans
+  · apply h
+  · apply h'
 ```
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- P is not the conclusion Q.
 example (P Q : Prop) (hp : P) : Q := by
   apply hp
@@ -321,7 +321,7 @@ example (P Q : Prop) : P → Q → P := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- An equality goal has no input to introduce.
 example : 4 = 4 := by
   intro x
@@ -341,7 +341,7 @@ example (n : Nat) : ∃ m : Nat, m = n + 1 := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- This goal is an equality, not an existence claim.
 example : 2 = 2 := by
   use 2
@@ -364,7 +364,7 @@ example (P Q : Prop) (h : P ∧ Q) : Q := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- An arbitrary proposition does not contain an existential witness.
 example (P : Prop) (h : P) : P := by
   obtain ⟨x, hx⟩ := h
@@ -388,7 +388,7 @@ example (n : Nat) : n + 0 = n := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- P is a proposition, not a natural number to split into cases.
 example (P : Prop) (h : P) : P := by
   induction' P with x ih
@@ -408,7 +408,7 @@ example (n : Nat) (h : n = 8) : n + 0 = 8 := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- Simplification alone does not prove an arbitrary proposition.
 example (P : Prop) : P := by
   simp
@@ -428,7 +428,7 @@ example : (3 : ℤ) < 11 := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- Calculation alone cannot prove an arbitrary proposition.
 example (P : Prop) : P := by
   norm_num
@@ -448,7 +448,7 @@ example (x y : ℝ) (h : x + y = 10) (hx : x = 3) : y = 7 := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- There is no assumption that says x is zero.
 example (x : ℝ) : x = 0 := by
   linarith
@@ -468,7 +468,7 @@ example (P Q : Prop) (h : P ∧ Q) : Q ∧ P := by
 
 Non-example:
 
-```lean (error := true)
+```lean +error
 -- There is no assumption that establishes P.
 example (P : Prop) : P := by
   grind
@@ -514,9 +514,9 @@ end
 
 ## `section`
 
-`section` starts a local scope, and `end` closes it. Variables and local settings inside the section stop being active after `end`.
+`section` starts a local ''scope'', which just means that you can add local variables and local settings that will be turned off after the keyword `end`.
 
-```lean
+```lean +error
 section LocalInputs
 
 variable (k : Nat)
@@ -525,12 +525,16 @@ example : k + 0 = k := by
   simp
 
 end LocalInputs
+-- from here and onwards the variable `k` is no longer referenced.
+#check k
 ```
 
 ## `namespace`
 
 `namespace` adds a prefix to names declared inside it. Use `end` to close the namespace.
-
+This is useful for organising theorems and definitions according to what they apply to.
+For example, thoerems about the natural numbers usually are in the `Nat` namespace, i.e. their name
+always has a `Nat.` at the start.
 ```lean
 namespace CourseDemo
 
@@ -544,12 +548,19 @@ end CourseDemo
 
 ## `#check`
 
-`#check` asks Lean for the type of an expression. It does not calculate the expression.
+`#check` prints out the type of an expression.
+This can be very useful for checking that an expression compiles and makes sense to Lean.
+It does not calculate the expression.
 
-```lean
+```lean +error
 #check Nat.add_comm
 
+#check Nat.add_comm 1 2
+
 #check (5 + 2 : Nat)
+
+-- This expression doesn't make sense, so Lean throws an error
+#check ℝ + Nat.factorial
 ```
 
 ## `#eval`
@@ -564,24 +575,43 @@ end CourseDemo
 
 ## `#synth`
 
-`#synth` asks Lean to find an instance of a type class. For example, `Add Nat` gives the addition operation on natural numbers.
+`#synth` checks whether there is instance of a ''typeclass'', which roughly means checking whether a given structure has been defined.
 
-```lean
-#synth Add Nat
+For example, `AddGroup Int` is a typeclass corresponding to an additive group structure on the integers.
+The example below shows that Lean knows about it, so you never need to refer to it explicitly.
 
-#synth DecidableEq Nat
+```lean +error
+#synth AddGroup Int
+
+-- The natural numbers don't form an additive group under standard addition, since `Nat` isn't closed under `-`.
+#synth AddGroup Nat
+
+-- Lean knows that there is a natural ℝ-linear inner product on the complex numbers
+#synth InnerProductSpace ℝ ℂ
+
+-- Lean knows that `ℝ³` is a topological space
+#synth TopologicalSpace (ℝ × ℝ × ℝ)
 ```
+
 
 ## `#where`
 
-`#where` reports the current namespace and other active scope settings. It helps you see the context in which Lean reads a command.
+`#where` prints out information about the current location in the file: the current namespace, local variables, settings, etc.
+
 
 ```lean
-namespace ScopeDemo
+namespace LotsOfVariables
+
+variable (a b c d e f g h i j k : Nat)
+variable (U V W : Type) [TopologicalSpace U] [TopologicalSpace V] [TopologicalSpace W]
+variable (f : U → V) (g : V → W)
 
 #where
 
-end ScopeDemo
+end LotsOfVariables
+
+-- No more variables here!
+#where
 ```
 
 :::::::
