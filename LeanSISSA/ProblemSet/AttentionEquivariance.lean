@@ -4,7 +4,7 @@ public import Mathlib
 
 /-! # Permutation equivariance of attention
 
-This is an open exercise. Write the definitions and replace `True` with the stated property.
+Write the definition, state and then prove the theorem about permutation equivariance of attention.
 Use finite index types for tokens and features.
 Useful declarations: `Equiv.sum_comp`,
 `Real.exp_pos`, `Finset.sum_div`.
@@ -20,7 +20,7 @@ namespace LeanSISSA.AttentionEquivariance
 For token `i`, it calculates the score `∑ k, x i k * x j k` for each token `j`.
 It applies softmax to the scores. It returns the weighted sum of the feature vectors. -/
 noncomputable def attention {ι κ : Type*} [Fintype ι] [Fintype κ]
-    (x : ι → κ → ℝ) : ι → κ → ℝ := by
+    (x : ι → κ → ℝ) : ι → κ → ℝ :=
   sorry
 
 /-- Let `σ` be a permutation of the token indices.
@@ -28,7 +28,7 @@ Apply attention to the input `fun i => x (σ i)`.
 For each `i`, the new output at `i` is equal to the original output at `σ i`.
 Replace `True` with this statement. Prove the statement. -/
 theorem attention_permutation {ι κ : Type*} [Fintype ι] [Fintype κ]
-    (x : ι → κ → ℝ) (σ : Equiv.Perm ι) : (sorry : Prop) := by
+    (x : ι → κ → ℝ) (σ : Equiv.Perm ι) : True := by
   sorry
 
 end LeanSISSA.AttentionEquivariance

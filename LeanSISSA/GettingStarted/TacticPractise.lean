@@ -84,7 +84,7 @@ example (a b : ℝ) (h : a < b) : a + 1 < b + 1 := by
   -- hint: use `add_lt_add_right`.
   sorry
 
-example (a b : ℝ) (h : a < b) : a ^ 2 < b ^ 2 := by
+example (a b : ℝ) (ha : 0 ≤ a) (h : a < b) : a ^ 2 < b ^ 2 := by
   -- hint: use `Real.sq_lt_sq`
   sorry
 
@@ -114,7 +114,7 @@ section Continuity
 open Real
 
 /-- The sigmoid function. -/
-noncomputable def σ : ℝ → ℝ := fun x => (1 + exp x)⁻¹
+noncomputable def σ : ℝ → ℝ := fun x => (1 + exp (-x))⁻¹
 
 lemma sigmoid_pos : ∀ x, 0 < 1 + exp x := by
   intro x
