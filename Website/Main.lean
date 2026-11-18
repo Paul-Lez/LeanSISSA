@@ -567,10 +567,17 @@ It does not calculate the expression.
 
 `#eval` computes an expression and displays the result. The expression must be executable.
 
-```lean
+```lean +error
 #eval (5 + 2 : Nat)
 
 #eval [1, 2, 3].length
+
+-- Define a real number `u` using the axiom of choice
+noncomputable def u : ℝ :=
+  Classical.ofNonempty
+
+-- `u` cannot be evaluated!
+#eval u
 ```
 
 ## `#synth`
