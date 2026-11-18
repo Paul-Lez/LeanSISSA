@@ -21,8 +21,6 @@ end Sets
 
 section FiniteAndSums
 
--- Introduce finite types, finite sets, notation for sums over these
-
 /- This is the sum `∑ i ∈ {1, 2, 3} = 6`. -/
 example : ∑ i ∈ Finset.Icc 1 3, i = 6 := by
   sorry

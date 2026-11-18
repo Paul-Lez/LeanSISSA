@@ -18,11 +18,14 @@ def network (n : ℕ) (a w b : Fin n → ℝ) (c x : ℝ) : ℝ := by
 /-- This condition says that `f` is locally affine outside a finite set `S`.
 For each `x ∉ S`, there is an open interval around `x` on which `f` is affine. -/
 def piecewiseAffine (f : ℝ → ℝ) : Prop :=
+  -- Replace this by the right condition.
   sorry
 
 /-- The network is locally affine outside a finite set.
 Replace `True` with `piecewiseAffine (network n a w b c)`. Prove the statement. -/
 theorem network_piecewiseAffine (n : ℕ) (a w b : Fin n → ℝ) (c : ℝ) : True := by
   sorry
+
+-- Challenge: this result also holds in higher dimensions. Can you state and prove this?
 
 end LeanSISSA.ReLUPiecewiseLinear

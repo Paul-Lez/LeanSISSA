@@ -92,6 +92,7 @@ example (a b c d e f g : ℝ) (ha : a ≤ b) (hb : b < c) (hc : c ≤ d)
     (hd : d ≤ e) (he : e ≤ f) (hf : f ≤ g) : a < g := by
   /-
   hint: if you enjoy pain, use `lt_of_le_of_lt` and `lt_of_lt_of_le` repeatedly.
+  Otherwise, use `linarith`.
   -/
   sorry
 

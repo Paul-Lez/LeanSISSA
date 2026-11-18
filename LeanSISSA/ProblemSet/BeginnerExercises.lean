@@ -15,6 +15,8 @@ namespace LeanSISSA.BeginnerExercises
 
 open ReLULipschitz UniformEntropy CauchyTheorem
 
+-- Add ReLU to the global imports. Then move the exercises below to the first exercise file.
+
 /-- ★: ReLU sends zero to zero. Hint: unfold `relu` and use `simp`. -/
 theorem relu_zero : relu 0 = 0 := by
   sorry
