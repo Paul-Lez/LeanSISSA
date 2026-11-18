@@ -8,6 +8,12 @@ open Verso Genre Manual InlineLean
 
 Welcome to the SISSA Lean tutorial website.
 
+Link to the GitHub: [github.com/Paul-Lez/LeanSISSA](https://github.com/Paul-Lez/LeanSISSA).
+
+Link to the suggestion form: [Suggestion Form](https://docs.google.com/forms/d/e/1FAIpQLSfKdjzW9uJXmUCZDWxK_oDuT7qBlz173WbcaKwMOnNai55KeA/viewform?usp=publish-editor).
+
+You can also contact me via email at `pl24@ic.ac.uk`.
+
 # Resources
 %%%
 tag := "resources"
