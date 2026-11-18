@@ -22,6 +22,7 @@ def quicksort : List ℕ → List ℕ
   | [] => []
   | pivot :: xs =>
       quicksort (xs.filter (· < pivot)) ++ [pivot] ++ quicksort (xs.filter (pivot ≤ ·))
+-- The lines below are needed to prove that the function acutally terminates.
 termination_by xs => xs.length
 decreasing_by
   all_goals
