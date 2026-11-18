@@ -116,19 +116,13 @@ open Real
 /-- The sigmoid function. -/
 noncomputable def σ : ℝ → ℝ := fun x => (1 + exp (-x))⁻¹
 
-lemma sigmoid_pos : ∀ x, 0 < 1 + exp x := by
-  intro x
-  apply add_pos
-  · exact zero_lt_one
-  · apply exp_pos
+lemma σ_pos : ∀ x, 0 < 1 + exp x := by
+  -- use add_pos, zero_lt_one, exp_pos
+  sorry
 
 theorem sigmoid_continous : Continuous σ := by
-  unfold σ
-  apply Continuous.inv₀
-  · continuity
-  · intro x
-    apply ne_of_gt
-    apply _root_.sigmoid_pos
+  -- Continuous.inv₀, ne_of_gt, σ_pos and the continuity tactic.
+  sorry
 
 theorem sigmoid_differentiable : Differentiable ℝ σ := by
   sorry

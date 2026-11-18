@@ -30,10 +30,7 @@ example : ∑ i ∈ Finset.Icc 1 3, i = 6 := by
   sorry
 
 example (n : ℕ) : 2 * ∑ i ∈ Finset.Icc 1 n, i = n * (n + 1) := by
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    sorry
+  sorry
 
 end FiniteAndSums
 

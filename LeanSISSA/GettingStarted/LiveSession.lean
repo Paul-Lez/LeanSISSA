@@ -50,16 +50,24 @@ public section
 def TriangularNumber (n : ℕ) : ℕ := ∑ i ∈ Finset.Icc 1 n, i
 
 theorem triangularNumber_succ : ∀ n, TriangularNumber (n + 1) = TriangularNumber n + (n + 1) := by
+  -- Finset.sum_Icc_succ_top, Nat.le_add_left
   sorry
 
 theorem triangularNumber_zero : TriangularNumber 0 = 0 := by
+  -- Finset.Icc_eq_empty, Finset.sum_empty
   sorry
+
 
 theorem exists_triangularNumber_eq : ∃ n, TriangularNumber n = 6 := by
   sorry
 
 example : ∃ n, 0 < TriangularNumber n ∧ 3 ∣ TriangularNumber n := by
   sorry
+
+
+
+
+
 
 
 
