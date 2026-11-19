@@ -48,8 +48,8 @@ htmlSplit := .never
 
 ### Formal Verification in Action
 
-- [AlphaProof and Signal](https://deepmind.google/blog/introducing-alphaproof-code/)
-- [Anthropic and Theorem: formal verification](https://www.anthropic.com/research/formal-verification)
+- [Google DeepMind and Signal](https://deepmind.google/blog/introducing-alphaproof-code/)
+- [Anthropic and Theorem](https://www.anthropic.com/research/formal-verification)
 - [Harmonic and Tensordyne](https://www.harmonic.fun/aristotle/case-studies/tensordyne/)
 
 ### Tooling
