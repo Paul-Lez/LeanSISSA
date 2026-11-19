@@ -29,16 +29,19 @@ def uniformMass {ι : Type*} [Fintype ι] (_i : ι) : ℝ :=
 /-- A uniform distribution on a nonempty finite type has entropy `log (card ι)` nats. -/
 theorem entropy_uniform {ι : Type*} [Fintype ι] [Nonempty ι] :
     entropy (uniformMass : ι → ℝ) = Real.log (Fintype.card ι) := by
-  sorry
+  have hcard : (Fintype.card ι : ℝ) ≠ 0 :=
+    Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  simp [entropy, uniformMass, Real.log_inv, hcard]
 
 /-- The uniform distribution on one point has zero entropy.
 Hint: specialize `entropy_uniform` to `Fin 1` and simplify. -/
 theorem entropy_uniform_one : entropy (uniformMass : Fin 1 → ℝ) = 0 := by
-  sorry
+  simpa using (entropy_uniform (ι := Fin 1))
 
 /-- The uniform distribution on two points has entropy `log 2` nats.
 Hint: specialize `entropy_uniform` to `Fin 2` and simplify. -/
 theorem entropy_uniform_two : entropy (uniformMass : Fin 2 → ℝ) = Real.log 2 := by
-  sorry
+  simpa using (entropy_uniform (ι := Fin 2))
+
 
 end LeanSISSA.UniformEntropy

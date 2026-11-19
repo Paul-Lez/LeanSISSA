@@ -23,6 +23,7 @@ def pool {ι : Type*} [Fintype ι] (φ ρ : ℝ → ℝ) (x : ι → ℝ) : ℝ 
 theorem pool_permutation {ι : Type*} [Fintype ι] (φ ρ : ℝ → ℝ)
     (x : ι → ℝ) (σ : Equiv.Perm ι) :
     pool φ ρ (fun i => x (σ i)) = pool φ ρ x := by
-  sorry
+  unfold pool
+  rw [Equiv.sum_comp σ (fun i => φ (x i))]
 
 end LeanSISSA.SumPooling

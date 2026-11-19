@@ -8,4 +8,4 @@ open scoped Real
 
 /-- `π` is irrational. -/
 theorem irrational_π : Irrational π := by
-  sorry
+  exact irrational_pi

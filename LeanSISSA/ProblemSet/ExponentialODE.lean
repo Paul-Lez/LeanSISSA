@@ -18,34 +18,58 @@ open scoped Topology NNReal
 
 namespace LeanSISSA.ExponentialODE
 
-/-- Let `f` satisfy `f' = f` at every real number. If `f` is zero at one point, it is zero
-at every point. -/
+/-- If `f' = f` everywhere and `f` vanishes at one point, it vanishes everywhere. -/
 theorem eq_zero_of_hasDeriv_self_of_eval_zero
     {f : ℝ → ℝ} (hx : ∀ x, HasDerivAt f (f x) x)
     {t₀ : ℝ} (ht₀ : f t₀ = 0) : f = 0 := by
-  sorry
+  apply ODE_solution_unique_univ (v := fun _ y : ℝ => y)
+    (s := fun _ => Set.univ) (K := 1) (t₀ := t₀)
+  · intro t; exact (LipschitzWith.id : LipschitzWith 1 (fun y : ℝ => y)).lipschitzOnWith
+  · intro t; exact ⟨hx t, mem_univ _⟩
+  · intro t; exact ⟨hasDerivAt_const t (0 : ℝ), mem_univ _⟩
+  · simp [ht₀]
 
-/-- Each solution of `f' = f` on the real numbers is a constant multiple of `Real.exp`. -/
+/-- Every solution of `f' = f` is a constant multiple of `Real.exp`. -/
 theorem exists_smul_rexp {f : ℝ → ℝ} (hf : ∀ x, HasDerivAt f (f x) x) :
     ∃ (C : ℝ), f = C • Real.exp := by
-  sorry
+  refine ⟨f 0, ?_⟩
+  apply ODE_solution_unique_univ (v := fun _ y : ℝ => y)
+    (s := fun _ => Set.univ) (K := 1) (t₀ := 0)
+  · intro t; exact (LipschitzWith.id : LipschitzWith 1 (fun y : ℝ => y)).lipschitzOnWith
+  · intro t; exact ⟨hf t, mem_univ _⟩
+  · intro t
+    have h := (Real.hasDerivAt_exp t).const_smul (f 0)
+    simpa [smul_eq_mul, mul_comm] using h
+  · simp [Real.exp_zero]
 
-/-- The equation `f' = f` holds at every real number if and only if `f` is a constant
-multiple of `Real.exp`. -/
+/-- The derivative equation holds exactly for constant multiples of `Real.exp`. -/
 theorem forall_hasDerivAt_eval_self_iff (f : ℝ → ℝ) :
     (∀ x, HasDerivAt f (f x) x) ↔ ∃ (C : ℝ), f = C • Real.exp := by
-  sorry
+  constructor
+  · exact exists_smul_rexp
+  · rintro ⟨C, rfl⟩ x
+    simpa [smul_eq_mul, mul_comm] using (Real.hasDerivAt_exp x).const_smul C
 
-/-- For a differentiable real function `f`, the equation `deriv f = f` holds if and only if
-`f` is a constant multiple of `Real.exp`. -/
+/-- For differentiable `f`, `deriv f = f` exactly when `f` is a multiple of `Real.exp`. -/
 theorem deriv_eq_self_iff {f : ℝ → ℝ} (hf : Differentiable ℝ f) :
     deriv f = f ↔ ∃ (C : ℝ), f = C • Real.exp := by
-  sorry
+  constructor
+  · intro h
+    apply (forall_hasDerivAt_eval_self_iff f).mp
+    intro x
+    exact (hf x).hasDerivAt.congr_deriv (by rw [h])
+  · rintro ⟨C, rfl⟩
+    funext x
+    exact (Real.hasDerivAt_exp x).const_smul C |>.deriv
 
 /-- A solution of `f' = f` with `f 0 = 1` is the exponential function.
 Hint: use `exists_smul_rexp` and evaluate at zero with `congrFun`. -/
 theorem exponential_initial_one (f : ℝ → ℝ)
     (hf : ∀ x, HasDerivAt f (f x) x) (hf0 : f 0 = 1) : f = Real.exp := by
-  sorry
+  obtain ⟨C, hC⟩ := exists_smul_rexp hf
+  have hzero := congrFun hC 0
+  have hC_one : C = 1 := by simpa [hf0] using hzero.symm
+  simpa [hC_one] using hC
+
 
 end LeanSISSA.ExponentialODE

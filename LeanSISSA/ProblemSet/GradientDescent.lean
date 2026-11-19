@@ -25,11 +25,33 @@ def step (a η x : ℝ) : ℝ := x - η * (2 * (x - a))
 The bounds include zero and one. -/
 theorem loss_step_le (a η x : ℝ) (hη₀ : 0 ≤ η) (hη₁ : η ≤ 1) :
     loss a (step a η x) ≤ loss a x := by
-  sorry
+  have hfactor : |1 - 2 * η| ≤ 1 := by
+    rw [abs_le]
+    constructor <;> linarith
+  have hfactor_sq : (1 - 2 * η) ^ 2 ≤ 1 := by
+    nlinarith [sq_nonneg (1 - 2 * η)]
+  unfold loss step
+  calc
+    (x - η * (2 * (x - a)) - a) ^ 2 = ((1 - 2 * η) ^ 2) * (x - a) ^ 2 := by ring
+    _ ≤ 1 * (x - a) ^ 2 := by
+      exact mul_le_mul_of_nonneg_right hfactor_sq (sq_nonneg (x - a))
+    _ = (x - a) ^ 2 := by ring
 
-/-- If the learning rate is strictly between zero and one, the step decreases the loss at `x ≠ a`. -/
+/-- If the learning rate is strictly between zero and one,
+the step decreases the loss at `x ≠ a`. -/
 theorem loss_step_lt (a η x : ℝ) (hη₀ : 0 < η) (hη₁ : η < 1) (hx : x ≠ a) :
     loss a (step a η x) < loss a x := by
-  sorry
+  have hfactor : |1 - 2 * η| < 1 := by
+    rw [abs_lt]
+    constructor <;> linarith
+  have hfactor_sq : (1 - 2 * η) ^ 2 < 1 := by
+    nlinarith [sq_nonneg (1 - 2 * η)]
+  have hdist : 0 < (x - a) ^ 2 := sq_pos_of_ne_zero (sub_ne_zero.mpr hx)
+  unfold loss step
+  calc
+    (x - η * (2 * (x - a)) - a) ^ 2 = ((1 - 2 * η) ^ 2) * (x - a) ^ 2 := by ring
+    _ < 1 * (x - a) ^ 2 := by
+      exact mul_lt_mul_of_pos_right hfactor_sq hdist
+    _ = (x - a) ^ 2 := by ring
 
 end LeanSISSA.GradientDescent

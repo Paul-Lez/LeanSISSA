@@ -55,27 +55,27 @@ instance : Mul Klein := ⟨mul⟩
 
 /-- Compute a product directly from the table. -/
 theorem a_mul_b : a * b = c := by
-  sorry
+  rfl
 
 /-- The identity acts on the left. -/
 theorem e_mul (x : Klein) : e * x = x := by
-  sorry
+  cases x <;> rfl
 
 /-- The identity acts on the right. -/
 theorem mul_e (x : Klein) : x * e = x := by
-  sorry
+  cases x <;> rfl
 
 /-- Every element is its own inverse. -/
 theorem mul_self (x : Klein) : x * x = e := by
-  sorry
+  cases x <;> rfl
 
 /-- Multiplication is commutative. -/
 theorem mul_comm (x y : Klein) : x * y = y * x := by
-  sorry
+  cases x <;> cases y <;> rfl
 
 /-- Multiplication is associative. Hint: split into cases on all three elements. -/
 theorem mul_assoc (x y z : Klein) : (x * y) * z = x * (y * z) := by
-  sorry
+  cases x <;> cases y <;> cases z <;> rfl
 
 /-- The preceding exercises give the Klein four group its commutative group structure. -/
 instance : CommGroup Klein where
@@ -90,19 +90,22 @@ instance : CommGroup Klein where
 
 /-- In group notation, every element is its own inverse. -/
 theorem inv_eq_self (x : Klein) : x⁻¹ = x := by
-  sorry
+  rfl
 
 /-- Every element has square one. -/
 theorem square_eq_one (x : Klein) : x ^ 2 = 1 := by
-  sorry
+  change x * x = e
+  exact mul_self x
 
 /-- Multiplying twice by the same element returns the original element.
 Hint: use associativity and `square_eq_one` or `mul_self`. -/
 theorem mul_mul_self (x y : Klein) : x * (x * y) = y := by
-  sorry
+  rw [← mul_assoc, mul_self]
+  exact e_mul y
 
 /-- Solve an equation in the Klein four group. Hint: use the previous exercise. -/
 theorem solve_mul (x y z : Klein) (h : x * y = z) : y = x * z := by
-  sorry
+  rw [← h, ← mul_assoc, mul_self]
+  exact (e_mul y).symm
 
 end LeanSISSA.KleinFour
