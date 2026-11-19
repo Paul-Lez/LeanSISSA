@@ -39,7 +39,12 @@ htmlSplit := .never
 - [Lean Zulip](https://leanprover.zulipchat.com/): ask questions and talk to the Lean community.
 - [Tau Ceti](https://github.com/TauCetiProject/TauCeti): an AI-built mathematics library.
 
-## A few links
+## Miscellaneous
+
+### Kernel and trust
+- [Lean Now Ships with Verified Kernels](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/): blog post by Leonardo de Moura (the creator of Lean) on the Lean kernel and its verification.
+- [What mathematicians should know about the Lean Theorem Prover: questions of reliability and AI](https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/): blog post by Tom Hales on the trusting Lean.
+- [Lean Kernel Arena](https://arena.lean-lang.org/): a website that lists and benchmarks the performance of a bunch of Lean kernels
 
 ### Formal Verification in Action
 
@@ -49,7 +54,7 @@ htmlSplit := .never
 
 ### Tooling
 
-- [Comparator](https://github.com/leanprover/comparator): check a proof against a statement and an axiom policy.
+- [Comparator](https://github.com/leanprover/comparator): robust tool for checking an untrusted proof against a statement.
 - [Palomar](https://palomar-registry.org/about): a registry for formal statements.
 
 # Math keyboard shortcuts
