@@ -29,11 +29,7 @@ instance : Fintype Klein where
   elems := {e, a, b, c}
   complete := by
     intro x
-    match x with
-    | e => grind
-    | a => grind
-    | b => grind
-    | c => grind
+    cases x <;> grind
 
 /-- The multiplication table for the Klein four group. -/
 def mul : Klein → Klein → Klein
