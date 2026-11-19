@@ -18,7 +18,7 @@ Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Math
 public section
 
 noncomputable section
-open Classical
+
 
 namespace LeanSISSA.CauchyTheorem
 
@@ -27,6 +27,7 @@ The list product uses the index order and does not assume that `G` is commutativ
 abbrev ProductOneTuples (G : Type*) [Group G] (p : ℕ) : Type _ :=
   {x : Fin p → G // (List.ofFn x).prod = 1}
 
+open Classical in
 /-- If `G` is finite, the type of product-one tuples is finite. -/
 noncomputable instance (G : Type*) [Group G] [Fintype G] (p : ℕ) :
     Fintype (ProductOneTuples G p) :=

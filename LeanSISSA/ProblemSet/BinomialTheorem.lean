@@ -15,7 +15,7 @@ public section
 namespace LeanSISSA.BinomialTheorem
 
 /-- The square of a sum in a commutative semiring.
-Try to solve this without using the `ring` tactic. -/
+Try to solve this without using the `ring` tactic.
 -/
 theorem square_add {R : Type*} [CommSemiring R] (a b : R) :
     (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2 := by
