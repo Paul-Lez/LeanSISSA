@@ -14,14 +14,16 @@ public section
 
 namespace LeanSISSA.BinomialTheorem
 
+/-- The square of a sum in a commutative semiring.
+Try to solve this without using the `ring` tactic. -/
+-/
+theorem square_add {R : Type*} [CommSemiring R] (a b : R) :
+    (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2 := by
+  sorry
+
 /-- For every natural number `n`, the `n`th power of a sum is the sum of the binomial terms. -/
 theorem binomial_formula {R : Type*} [CommSemiring R] (a b : R) (n : ℕ) :
     (a + b) ^ n = ∑ k ∈ Finset.range (n + 1), (Nat.choose n k : R) * a ^ k * b ^ (n - k) := by
-  sorry
-
-/-- The square of a sum in a commutative semiring. Hint: `ring`. -/
-theorem square_add {R : Type*} [CommSemiring R] (a b : R) :
-    (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2 := by
   sorry
 
 end LeanSISSA.BinomialTheorem

@@ -31,7 +31,8 @@ htmlSplit := .never
 ## Find definitions and get help
 
 - [Mathlib](https://github.com/leanprover-community/mathlib4): the main Lean mathematics library. Browse its [documentation](https://leanprover-community.github.io/mathlib4_docs/).
-- [Mathlib Phrasebook](https://leanprover-community.github.io/documentation.html#how-tos)
+- [Mathlib Phrasebook](https://leanprover-community.github.io/mathlib-phrasebook/): a bunch of tutorials on how to state standard things on Lean.
+- [How-to guides](https://leanprover-community.github.io/documentation.html#how-tos): General collection of Lean tutorials written by the community.
 - [Tactic list](https://leanprover-community.github.io/mathlib4_docs/tactics.html): find more tactics and their syntax.
 - [Lean glossary](https://leanprover-community.github.io/glossary.html): look up terms used by the community.
 - [Loogle](https://loogle.lean-lang.org/): search for declarations by name or type.

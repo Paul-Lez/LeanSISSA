@@ -18,11 +18,13 @@ public section
 namespace LeanSISSA.KleinFour
 
 /-- The four elements of the Klein four group. -/
-inductive Klein where
+public inductive Klein where
   | e | a | b | c
-  deriving DecidableEq
+  deriving DecidableEq, Inhabited
 
-open Klein in
+open Klein
+
+-- TODO(Paul): we should be able to auto-derive the `Fintype` instance here but there's a bug.
 instance : Fintype Klein where
   elems := {e, a, b, c}
   complete := by
@@ -32,8 +34,6 @@ instance : Fintype Klein where
     | a => grind
     | b => grind
     | c => grind
-
-open Klein
 
 /-- The multiplication table for the Klein four group. -/
 def mul : Klein → Klein → Klein

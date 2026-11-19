@@ -18,18 +18,6 @@ namespace LeanSISSA.ReLULipschitz
 Otherwise, the result is `x`. -/
 def relu (x : ℝ) : ℝ := max 0 x
 
-/-- The absolute difference between two ReLU outputs is at most the absolute difference between their inputs. -/
-theorem relu_lipschitz (x y : ℝ) : |relu x - relu y| ≤ |x - y| := by
-  sorry
-
-/-- The composition has the Lipschitz bound `K * L`.
-The hypotheses give Lipschitz bounds `K` and `L` for `f` and `g`, with `K ≥ 0`. -/
-theorem lipschitz_comp (f g : ℝ → ℝ) (K L : ℝ)
-    (hf : ∀ x y, |f x - f y| ≤ K * |x - y|)
-    (hg : ∀ x y, |g x - g y| ≤ L * |x - y|) (hK : 0 ≤ K) :
-    ∀ x y, |f (g x) - f (g y)| ≤ (K * L) * |x - y| := by
-  sorry
-
 /-- ReLU sends zero to zero. Hint: unfold `relu` and use `simp`. -/
 theorem relu_zero : relu 0 = 0 := by
   sorry
@@ -44,6 +32,19 @@ theorem relu_nonneg (x : ℝ) : 0 ≤ relu x := by
 
 /-- Applying ReLU twice gives the same result. Hint: use nonnegativity. -/
 theorem relu_idempotent (x : ℝ) : relu (relu x) = relu x := by
+  sorry
+
+/-- The absolute difference between two ReLU outputs is at most the
+absolute difference between their inputs. -/
+theorem relu_lipschitz (x y : ℝ) : |relu x - relu y| ≤ |x - y| := by
+  sorry
+
+/-- The composition has the Lipschitz bound `K * L`.
+The hypotheses give Lipschitz bounds `K` and `L` for `f` and `g`, with `K ≥ 0`. -/
+theorem lipschitz_comp (f g : ℝ → ℝ) (K L : ℝ)
+    (hf : ∀ x y, |f x - f y| ≤ K * |x - y|)
+    (hg : ∀ x y, |g x - g y| ≤ L * |x - y|) (hK : 0 ≤ K) :
+    ∀ x y, |f (g x) - f (g y)| ≤ (K * L) * |x - y| := by
   sorry
 
 end LeanSISSA.ReLULipschitz

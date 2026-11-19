@@ -40,7 +40,7 @@ theorem card_product_one_tuples (G : Type*) [Group G] [Fintype G] (p : ℕ) (hp 
 /-- Rotate a product-one tuple one position to the left. The index `i` of the result has
 entry `x (i + 1)`, where addition of indices is modulo `p`. -/
 def rotate {G : Type*} [Group G] (p : ℕ) [NeZero p]
-    (x : ProductOneTuples G p) : ProductOneTuples G p := by
+    (x : ProductOneTuples G p) : ProductOneTuples G p :=
   sorry
 
 /-- If the tuple has length `p`, `p` rotations return the original tuple. -/
@@ -48,15 +48,22 @@ theorem rotate_iterate {G : Type*} [Group G] (p : ℕ) [NeZero p]
     (x : ProductOneTuples G p) : (rotate p)^[p] x = x := by
   sorry
 
-/-- The additive group `ZMod p` acts on product-one tuples by repeated rotation. -/
-instance rotationAction {G : Type*} [Group G] (p : ℕ) [NeZero p] :
-    AddAction (ZMod p) (ProductOneTuples G p) :=
+/-- The rotate action induces an action of the additive group `ZMod p` on product-one tuples. -/
+def rotationAction {G : Type*} [Group G] (p : ℕ) [NeZero p]
+    (i : ZMod p) (t : ProductOneTuples G p) : ProductOneTuples G p :=
   sorry
 
-/-- In the rotation action, the element one performs one rotation. -/
+/-- The additive group `ZMod p` acts on product-one tuples by repeated rotation. -/
+instance {G : Type*} [Group G] (p : ℕ) [NeZero p] :
+    AddAction (ZMod p) (ProductOneTuples G p) where
+  vadd := sorry
+  add_vadd := by sorry
+  zero_vadd := by sorry
+
+/-- In the rotation action, the element one performs one rotation.
+The notation `+ᵥ` is for the additive group action. -/
 theorem rotation_action_one {G : Type*} [Group G] (p : ℕ) [NeZero p]
     (x : ProductOneTuples G p) :
-    letI : AddAction (ZMod p) (ProductOneTuples G p) := rotationAction p
     (1 : ZMod p) +ᵥ x = rotate p x := by
   sorry
 

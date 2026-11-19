@@ -4,7 +4,8 @@ public import Mathlib
 
 /-! # ReLU networks are piecewise linear
 
-This is an open exercise. Write the definitions and replace `True` with the stated property.
+Write the definitions and replace `True` with the stated property.
+Then prove the theorem.
 Useful declarations: `Finset.sum`, `Set.Finite`, `max_eq_left`, `max_eq_right`.
 Mathlib documentation: https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Set/Finite/Basic.html
 -/
@@ -30,6 +31,10 @@ Replace `True` with `piecewiseAffine (network n a w b c)`. Prove the statement. 
 theorem network_piecewiseAffine (n : ℕ) (a w b : Fin n → ℝ) (c : ℝ) : True := by
   sorry
 
--- Challenge: this result also holds in higher dimensions. Can you state and prove this?
+/- Challenge:
+- This holds for any number of hidden layers - generalise this!
+- this result also holds in higher dimensions. Can you state and prove this?
+-/
+
 
 end LeanSISSA.ReLUPiecewiseLinear
