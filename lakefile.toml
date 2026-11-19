@@ -11,6 +11,8 @@ maxSynthPendingDepth = 3
 weak.linter.style.header = false
 warn.sorry = false
 autoImplicit = false
+weak.linter.style.longLine = false
+linter.unusedFintypeInType = false
 
 [[require]]
 name = "mathlib"
