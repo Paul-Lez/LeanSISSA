@@ -49,7 +49,8 @@ public section
 /-- Triangular numbers are numbers of the form ∑_{i ≤ 0}^n i. -/
 def TriangularNumber (n : ℕ) : ℕ := ∑ i ∈ Finset.Icc 1 n, i
 
-theorem triangularNumber_succ : ∀ n, TriangularNumber (n + 1) = TriangularNumber n + (n + 1) := by
+theorem triangularNumber_succ :
+    ∀ n, TriangularNumber (n + 1) = TriangularNumber n + (n + 1) := by
   -- Finset.sum_Icc_succ_top, Nat.le_add_left
   sorry
 
